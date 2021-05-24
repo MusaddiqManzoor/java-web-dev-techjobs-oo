@@ -48,6 +48,9 @@ public class Job {
     }
 
     public String getName() {
+        if (this.name.equals("")) {
+            this.setName("Data Not Available: ");
+        }
         return name;
     }
 
@@ -56,6 +59,10 @@ public class Job {
     }
 
     public Employer getEmployer() {
+
+        if (this.employer.getValue().equals("")) {
+            employer.setValue("Data Not Available: ");
+        }
         return employer;
     }
 
@@ -64,6 +71,10 @@ public class Job {
     }
 
     public Location getLocation() {
+
+        if (this.location.getValue().equals("")) {
+            location.setValue("Data Not Available: ");
+        }
         return location;
     }
 
@@ -72,14 +83,23 @@ public class Job {
     }
 
     public PositionType getPositionType() {
+        if (this.positionType.getValue().equals("")) {
+            positionType.setValue("Data Not Available: ");
+        }
         return positionType;
     }
 
     public void setPositionType(PositionType positionType) {
+        if (this.positionType.getValue().equals("")) {
+            positionType.setValue("Data Not Available: ");
+        }
         this.positionType = positionType;
     }
 
     public CoreCompetency getCoreCompetency() {
+        if (this.coreCompetency.getValue().equals("")) {
+            coreCompetency.setValue("Data Not Available: ");
+        }
         return coreCompetency;
     }
 
@@ -91,4 +111,16 @@ public class Job {
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
+
+    @Override
+    public String toString() {
+
+        return "\n" + "ID: " + this.getId() + "\n" +
+                "Name: " + this.getName() + "\n" +
+                "Employer: " + this.getEmployer() + "\n" +
+                "Location: " + this.getLocation() + "\n" +
+                "Position Type: " + this.getPositionType() + "\n" +
+                "Core Competency: " + this.getCoreCompetency() + "\n";
+    }
+
 }
